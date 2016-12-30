@@ -32,8 +32,13 @@ export default class Demo extends Component {
   }
 
   handleAudioProcess(analyser) {
-
     this.visualization.audioProcess(analyser);
+  }
+
+  convertToDefcon(value) {
+    const divisor = 5 //convert values into defcon levels 1-5
+
+    return Math.floor(parseFloat(value/divisor))
   }
   
   componentDidMount() {
@@ -41,12 +46,8 @@ export default class Demo extends Component {
       fetch('./data.json')
         .then((res) => res.json())
         .then((data) => {
-          const readingDivisor = 5 //convert values into defcon levels 1-5
-
           let d = data[1] 
-          let defcon = parseFloat(d/readingDivisor)
-
-          console.log(this.Math/floor(1.3))
+          let defcon = this.convertToDefcon(d)
 
           this.setState({
             defcon: defcon})
