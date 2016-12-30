@@ -38,7 +38,7 @@ export default class Demo extends Component {
   convertToDefcon(value) {
     const divisor = 5 //convert values into defcon levels 1-5
 
-    return Math.floor(parseFloat(value/divisor))
+    return (Math.floor(parseFloat(value/divisor)) + 1)
   }
   
   componentDidMount() {
@@ -62,7 +62,7 @@ export default class Demo extends Component {
     });
   }
 
-  renderDefconOne() {
+  renderDefconFive() {
     return (
       <PingPong>
         <Synth
@@ -77,7 +77,7 @@ export default class Demo extends Component {
     )
 
   }
-  renderDefconTwo() {
+  renderDefconFour() {
     return (
       <Sampler
         sample="samples/drumLoop.wav"
@@ -117,7 +117,7 @@ export default class Demo extends Component {
     )
   }
 
-  renderDefconFour() {
+  renderDefconTwo() {
     return (
       <Sampler
         sample="samples/drumLoop.wav"
@@ -128,7 +128,7 @@ export default class Demo extends Component {
     )
   }
 
-  renderDefconFive() {
+  renderDefconOne() {
     return (
       <PingPong>
         <Sampler
@@ -140,11 +140,11 @@ export default class Demo extends Component {
   }
 
   render() {
-    const defconOne = (this.state.defcon >= 0);
-    const defconTwo = (this.state.defcon >= 1);
-    const defconThree = (this.state.defcon >= 2);
-    const defconFour = (this.state.defcon >= 3);
-    const defconFive = (this.state.defcon >= 4);
+    const defconOne = (this.state.defcon <= 1);
+    const defconTwo = (this.state.defcon <= 2);
+    const defconThree = (this.state.defcon <= 3);
+    const defconFour = (this.state.defcon <= 4);
+    const defconFive = (this.state.defcon <= 5);
     return (
       <div>
         <Song
