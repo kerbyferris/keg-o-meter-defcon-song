@@ -1,54 +1,76 @@
-.react-music-canvas {
-  display: block;
-  margin: 0 auto 0;
-  padding: 10px;
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  /* justify-content: center; */
+  /* text-align: center; */
 }
 
 .react-music-button {
-  display: block;
   text-decoration: none;
-  /* background-color: #f7f7f7; */
-  /* background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7)); */
-  /* background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); */
-  /* background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); */
-  /* background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); */
-  /* background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); */
-  /* color: #a7a7a7; */
-  /* margin: 30px auto; */
-  margin: 3px auto;
-  width: 108px;
-  /* height: 108px; */
-  /* position: relative; */
-  text-align: center;
-  /* line-height: 108px; */
-  /* border-radius: 50%; */
-  /* box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff; */
-  border: solid 1px transparent;
   outline: none;
-  font-size: 16px;
-  text-transform: uppercase;
+  border: none;
+  font-size: 160px;
+  background-color: white;
+  line-height: 120px;
+  height: 120px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 20%;
 }
 
-.react-music-button:before {
-  /* content: ""; */
-  display: block;
-  /* background: #fff; */
-  /* border-top: 2px solid #ddd; */
-  /* position: absolute; */
-  /* top: -9px; */
-  /* left: -9px; */
-  /* bottom: -9px; */
-  /* right: -9px; */
-  /* z-index: -1; */
-  /* border-radius: 50%; */
-  /* box-shadow: inset 0px 8px 48px #ddd; */
+#meter {
+  display: flex;
+  border: none;
+  align-items: center;
 }
 
-.react-music-button:active {
-  /* box-shadow: none; */
-  /* border: solid 1px #a7a7a7; */
+.defcon {
+  justify-self: center;
+  cursor: pointer;
+  font-size: 230px;
+  font-weight: bold;
+  line-height: 170px;
+  height: 170px;
+  width: 160px;
+}
+
+#visualize {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.react-music-canvas {
 }
 
 .react-music-metadata {
-  width: 200px;
+}
+
+.react-music-metadata span {
+  padding: 0 10px;
+  text-transform: uppercase;
+  border: 1px solid black;
+}
+
+#defcon-1 {
+  background-color: white;
+}
+#defcon-2 {
+  background-color: red;
+}
+#defcon-3 {
+  background-color: yellow;
+}
+#defcon-4 {
+  background-color: green;
+}
+#defcon-5 {
+  background-color: blue;
 }
