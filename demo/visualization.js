@@ -13,11 +13,11 @@ export default class Visualization extends Component {
   }
   audioProcess(analyser) {
     if (this.ctx) {
-      const gradient = this.ctx.createLinearGradient(0, 0, 0, 512);
-      gradient.addColorStop(1, '#000000');
-      gradient.addColorStop(0.75, '#2ecc71');
-      gradient.addColorStop(0.25, '#f1c40f');
-      gradient.addColorStop(0, '#e74c3c');
+      const gradient = this.ctx.createLinearGradient(0, 512, 0, 0);
+      gradient.addColorStop(1, 'black');
+      gradient.addColorStop(0.75, 'green');
+      gradient.addColorStop(0.25, 'yellow');
+      gradient.addColorStop(0, 'red');
 
       const array = new Uint8Array(analyser.frequencyBinCount);
       analyser.getByteFrequencyData(array);
