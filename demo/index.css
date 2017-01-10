@@ -1,15 +1,14 @@
 #root {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 #main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0;
-  align-items: center;
-  /* justify-content: center; */
-  /* text-align: center; */
+  align-items: left;
 }
 
 .react-music-button {
@@ -21,22 +20,21 @@
   font-size: 160px;
   flex-direction: column;
   background-color: white;
-  line-height: 120px;
-  height: 120px;
+  line-height: 135px;
+  height: 150px;
   cursor: pointer;
-  align-self: flex-end;
-  margin-right: 20%;
 }
 
 .react-music-button span {
+  background-color: white;
   font-size: 16px;
   font-weight: bold;
   border: 2px solid black;
   height: 20px;
   line-height: 20px;
   text-transform: uppercase;
-  padding: 0 10px;
-  margin-top: 5px;
+  padding: 0 6px;
+  margin: -75px 0 0 -26px;
 }
 
 .react-music-button span.active {
@@ -47,17 +45,18 @@
 #meter {
   display: flex;
   border: none;
+  flex-direction: column;
   align-items: center;
 }
 
 .defcon {
   justify-self: center;
   cursor: pointer;
-  font-size: 230px;
+  font-size: 210px;
   font-weight: bold;
-  line-height: 170px;
-  height: 170px;
-  width: 153px;
+  line-height: 164px;
+  height: 150px;
+  width: 133px;
 }
 
 #visualize {
@@ -70,6 +69,8 @@
 }
 
 .react-music-metadata {
+  position: flex;
+  flex-direction: column;
 }
 
 .react-music-metadata span {

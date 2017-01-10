@@ -13,21 +13,20 @@ export default class Visualization extends Component {
   }
   audioProcess(analyser) {
     if (this.ctx) {
-      const gradient = this.ctx.createLinearGradient(0, 512, 0, 0);
+      const gradient = this.ctx.createLinearGradient(0, 0, 0, 732);
       gradient.addColorStop(1, 'black');
-      gradient.addColorStop(0.75, 'green');
-      gradient.addColorStop(0.25, 'yellow');
-      gradient.addColorStop(0, 'red');
+      gradient.addColorStop(0.8, 'green');
+      gradient.addColorStop(0.6, 'yellow');
+      gradient.addColorStop(0.4, 'red');
 
       const array = new Uint8Array(analyser.frequencyBinCount);
       analyser.getByteFrequencyData(array);
-      this.ctx.clearRect(0, 0, 766, 512);
+      this.ctx.clearRect(0, 0, 766, 732);
       this.ctx.fillStyle = gradient;
 
       for (let i = 0; i < (array.length); i++) {
         const value = array[i];
-        this.ctx.fillRect(i * 12, 512, 10, value * -2);
-        //this.ctx.fillRect(i * 12, value * -2, 10, 512);
+        this.ctx.fillRect(i * 12, 732, 10, value * -2);
       }
     }
   }
@@ -36,7 +35,7 @@ export default class Visualization extends Component {
       <canvas
         className="react-music-canvas"
         width={766}
-        height={512}
+        height={732}
         ref={(c) => { this.canvas = c; }}
       />
     );

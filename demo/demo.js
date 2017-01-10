@@ -167,13 +167,15 @@ export default class Demo extends Component {
           </Analyser>
         </Song>
 
-        <div id="visualize">
-          <div className="react-music-metadata">
-            <span>Defcon: {this.state.defcon.toString()}</span>
-            <span>Data In: {this.state.reading.toString()}</span>
-          </div>
-          <Visualization ref={(c) => { this.visualization = c; }} />
-        </div>
+        <button
+          className="react-music-button"
+          type="button"
+          style={{marginTop: (this.state.defcon - 1) * 150}}
+          onClick={this.handlePlayToggle}
+        >
+          {this.state.playing ? '\u25B6' : '\u25B6'}
+          <span className={this.state.playing ? 'active' : ''}>{this.state.playing ? 'stop' : 'play'}</span>
+        </button>
         <div id="meter">
           <div id="defcon-1" className="defcon" onClick={()=>this.handleLevelSelect(1)}>1</div>
           <div id="defcon-2" className="defcon" onClick={()=>this.handleLevelSelect(2)}>2</div>
@@ -181,15 +183,14 @@ export default class Demo extends Component {
           <div id="defcon-4" className="defcon" onClick={()=>this.handleLevelSelect(4)}>4</div>
           <div id="defcon-5" className="defcon" onClick={()=>this.handleLevelSelect(5)}>5</div>
         </div>
-        <button
-          className="react-music-button"
-          type="button"
-          style={{marginRight:(5 - this.state.defcon) * 160 + 8}}
-          onClick={this.handlePlayToggle}
-        >
-          {this.state.playing ? '\u25B2' : '\u25B2'}
-          <span className={this.state.playing ? 'active' : ''}>{this.state.playing ? 'stop' : 'play'}</span>
-        </button>
+
+        <div id="visualize">
+          <div className="react-music-metadata">
+            <span>Defcon: {this.state.defcon.toString()}</span>
+            <span>Data In: {this.state.reading.toString()}</span>
+          </div>
+          <Visualization ref={(c) => { this.visualization = c; }} />
+        </div>
 
       </div>
     );
