@@ -26,20 +26,19 @@
 }
 
 .react-music-button span {
-  background-color: white;
+  background-color: black;
+  color: skyblue;
   font-size: 16px;
   font-weight: bold;
   border: 2px solid black;
   height: 20px;
   line-height: 20px;
   text-transform: uppercase;
-  padding: 0 6px;
   margin: -75px 0 0 -26px;
 }
 
 .react-music-button span.active {
-  color: white;
-  background-color: black;
+  color: red;
 }
 
 #meter {
@@ -74,6 +73,7 @@
 }
 
 .react-music-metadata span {
+  background-color: skyblue;
   height: 20px;
   font-weight: bold;
   padding: 0 10px;
@@ -94,5 +94,5 @@
   background-color: green;
 }
 #defcon-5 {
-  background-color: blue;
+  background-color: skyblue;
 }

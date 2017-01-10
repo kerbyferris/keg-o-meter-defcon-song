@@ -14,7 +14,7 @@ export default class Visualization extends Component {
   audioProcess(analyser) {
     if (this.ctx) {
       const gradient = this.ctx.createLinearGradient(0, 0, 0, 732);
-      gradient.addColorStop(1, 'black');
+      gradient.addColorStop(1, 'skyblue');
       gradient.addColorStop(0.8, 'green');
       gradient.addColorStop(0.6, 'yellow');
       gradient.addColorStop(0.4, 'red');
