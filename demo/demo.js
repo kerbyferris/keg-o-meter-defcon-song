@@ -187,7 +187,8 @@ export default class Demo extends Component {
           style={{marginRight:(5 - this.state.defcon) * 160 + 8}}
           onClick={this.handlePlayToggle}
         >
-          {this.state.playing ? '\u25A0' : '\u25B2'}
+          {this.state.playing ? '\u25B2' : '\u25B2'}
+          <span className={this.state.playing ? 'active' : ''}>{this.state.playing ? 'stop' : 'play'}</span>
         </button>
 
       </div>

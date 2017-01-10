@@ -21,12 +21,13 @@ export default class Visualization extends Component {
 
       const array = new Uint8Array(analyser.frequencyBinCount);
       analyser.getByteFrequencyData(array);
-      this.ctx.clearRect(0, 0, 800, 512);
+      this.ctx.clearRect(0, 0, 766, 512);
       this.ctx.fillStyle = gradient;
 
       for (let i = 0; i < (array.length); i++) {
         const value = array[i];
         this.ctx.fillRect(i * 12, 512, 10, value * -2);
+        //this.ctx.fillRect(i * 12, value * -2, 10, 512);
       }
     }
   }
@@ -34,7 +35,7 @@ export default class Visualization extends Component {
     return (
       <canvas
         className="react-music-canvas"
-        width={800}
+        width={766}
         height={512}
         ref={(c) => { this.canvas = c; }}
       />
