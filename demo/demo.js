@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
   Analyser,
@@ -8,16 +8,16 @@ import {
   Synth,
   Reverb,
   PingPong,
-} from '../src';
+} from '../src'
 
-import Polysynth from './polysynth';
-import Visualization from './visualization';
+import Polysynth from './polysynth'
+import Visualization from './visualization'
 
-import './index.css';
+import './index.css'
 
 export default class Demo extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       playing: false,
@@ -26,15 +26,17 @@ export default class Demo extends Component {
       maxReading: 21,
       reading: 0,
       dataOverride: true,
-    };
+      dataSource: 'defcon'
+    }
 
-    this.handleAudioProcess = this.handleAudioProcess.bind(this);
-    this.handlePlayToggle = this.handlePlayToggle.bind(this);
-    this.handleLevelSelect = this.handleLevelSelect.bind(this);
+    this.handleAudioProcess = this.handleAudioProcess.bind(this)
+    this.handlePlayToggle = this.handlePlayToggle.bind(this)
+    this.handleLevelSelect = this.handleLevelSelect.bind(this)
+    this.handleDataSourceSelect = this.handleDataSourceSelect.bind(this)
   }
 
   handleAudioProcess(analyser) {
-    this.visualization.audioProcess(analyser);
+    this.visualization.audioProcess(analyser)
   }
 
   convertToDefcon = value => {
@@ -45,7 +47,7 @@ export default class Demo extends Component {
   }
   
   componentDidMount() {
-    if(!this.state.dataOverride) {
+    if(this.state.dataSource === 'dataIn') {
       setInterval( () => {
         fetch('./data.json')
           .then((res) => res.json())
@@ -55,18 +57,23 @@ export default class Demo extends Component {
 
             this.setState({defcon: defcon})
             this.setState({reading: d})
-          });
-      }, 1000 );
+          })
+      }, 1000 )
     }
   }
 
   handlePlayToggle() {
-    this.setState({playing: !this.state.playing});
+    this.setState({playing: !this.state.playing})
   }
 
   handleLevelSelect(e) {
-    this.setState({defcon: e});
+    this.setState({defcon: e})
   }
+
+  handleDataSourceSelect(source) {
+    this.setState({dataSource: source})
+  }
+
 
   renderDefconFive() {
     return (
@@ -185,14 +192,14 @@ export default class Demo extends Component {
         </div>
 
         <div id="visualize">
-          <div className="react-music-metadata">
-            <span>Defcon: {this.state.defcon.toString()}</span>
-            <span>Data In: {this.state.reading.toString()}</span>
-          </div>
-          <Visualization ref={(c) => { this.visualization = c; }} />
+          <ul className="react-music-metadata">
+            <li onClick={()=>this.handleDataSourceSelect('defcon')}>Defcon: {this.state.defcon.toString()}</li>
+            <li onClick={()=>this.handleDataSourceSelect('dataIn')}>Data In: {this.state.reading.toString()}</li>
+          </ul>
+          <Visualization ref={(c) => { this.visualization = c }} />
         </div>
 
       </div>
-    );
+    )
   }
 }
